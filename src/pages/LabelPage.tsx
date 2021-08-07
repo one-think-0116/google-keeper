@@ -31,6 +31,7 @@ const LabelPage = ({ match }: RouteComponentProps<MatchParams>) => {
           bgColor: doc.data().bgColor,
           content: doc.data().content,
           labels: doc.data().labels,
+          imgUrl: doc.data().imgUrl
         }))
         .filter((note: Note) => note.labels.includes(labelName));
       setNotes(labeledNotes);

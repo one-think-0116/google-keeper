@@ -79,6 +79,7 @@ const ArchivedNote = () => {
           bgColor: doc.data().bgColor,
           content: doc.data().content,
           labels: doc.data().labels,
+          imgUrl:doc.data().imgUrl
           // ...doc.data(),
         }))
         .filter((note) => note.isArchived === true);

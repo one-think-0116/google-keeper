@@ -78,3 +78,11 @@ export const changeNoteToArchives = async (id: string): Promise<void> => {
 export const changeArchivesToNotes = async (id: string): Promise<void> => {
   await dbService.doc(`notes/${id}`).update({ isArchived: false });
 };
+
+export const uploadImage = async (
+  id:string,
+  name: string,
+  value: string,
+): Promise<void> => {
+  await dbService.doc(`notes/${id}`).update({ [name]: value });
+};

@@ -35,6 +35,7 @@ function Home() {
         bgColor: doc.data().bgColor,
         content: doc.data().content,
         labels: doc.data().labels,
+        imgUrl:doc.data().imgUrl
         // ...doc.data(),
       }));
 
@@ -60,6 +61,7 @@ function Home() {
     <Container>
       <InputField />
       <Notes notes={notes} />
+      
     </Container>
   );
 }

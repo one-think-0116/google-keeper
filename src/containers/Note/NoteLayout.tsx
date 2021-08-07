@@ -54,6 +54,7 @@ const NoteLayout = ({
             id={id}
             onHover={isHovering}
             setShowLabel={setShowLabel}
+            
             onDelete={onDelete}
             isChecked={isChecked}
             onClose={onClose}
