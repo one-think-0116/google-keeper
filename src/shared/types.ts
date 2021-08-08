@@ -13,7 +13,6 @@ export interface Note {
   bgColor: string;
   content: string;
   labels: string[];
-  imgUrl:string;
 }
 
 export interface Todo {

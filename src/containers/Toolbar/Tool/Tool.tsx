@@ -25,18 +25,13 @@ interface ToolProp {
   title: string;
   bgImage?: string;
   onToggle?: (noteProperty: ToggleTool) => void;
-  onAddPicture?: (() => void) | undefined;
   showPalette?: (() => void) | undefined;
   hidePalette?: (() => void) | undefined;
   deleteTodo?: () => void | undefined;
   setShowLabel?: (val: boolean) => void;
-  setShowImage?: (val: boolean) => void;
-  setModalShow?: (val: boolean) => void;
-  inputFile?: React.Ref<HTMLInputElement>;
   onRemove?: (label: string) => void;
   isInputField?: boolean;
   isPinned?: boolean;
-  imgUrl?: string;
   editLabel?: boolean;
   notePin?: boolean;
   inputPin?: boolean;
@@ -54,7 +49,6 @@ interface StyleProps {
   notePin?: boolean;
   inputPin?: boolean;
   isPinned?: boolean;
-  imgUrl?: string;
   isLabel?: boolean;
   editLabel?: boolean;
 }
@@ -68,13 +62,9 @@ const Tool = ({
   hidePalette,
   deleteTodo,
   setShowLabel,
-  setShowImage,
-  setModalShow,
-  inputFile,
   onRemove,
   isInputField,
   isPinned,
-  imgUrl,
   editLabel,
   isLabel,
   clearInput,
@@ -174,25 +164,6 @@ const Tool = ({
     }
   };
 
-  const handleAddPictureLabel = (): void => {
-    console.log(document.getElementsByClassName("file")[0]);
-    // const wrapperEle: HTMLElement = document.getElementsByClassName("file")
-    // wrapperEle.click();
-    const openFile = inputFile;
-    if (typeof openFile === 'object') {
-      // if(setShowImage)
-      //   setShowImage(true);
-      openFile?.current?.click();
-    }
-    // if(inputFile !== null && inputFile !== undefined && inputFile.current !== null && inputFile.current !== undefined)
-    //   inputFile.current.click();
-  }
-
-  const handleAddLocation = (): void => {
-    if(setModalShow)
-      setModalShow(true);
-  }
-
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     title: string,
@@ -239,12 +210,6 @@ const Tool = ({
       case 'Change Color':
         if (showPalette) showPalette();
         break;
-      case 'Add Picture':
-        handleAddPictureLabel();
-        break;
-      case 'Add Location':
-        handleAddLocation();
-        break;
       default:
         return title;
     }
@@ -257,7 +222,6 @@ const Tool = ({
     isPinned,
     isLabel,
     editLabel,
-    imgUrl
   };
 
   return (

@@ -7,14 +7,12 @@ import TranshCanIcon from 'icons/trash-can.svg';
 import PaintIcon from 'icons/paintbrush.svg';
 import CheckboxIcon from 'icons/checkbox.svg';
 import ArchiveIcon from 'icons/archive.svg';
-import PictureIcon from 'icons/picture.svg';
-import MapPinIcon from 'icons/map-pin.svg';
 import Tool from 'containers/Toolbar/Tool/Tool';
 import ColorPalette from 'components/ColorPalette/ColorPalette';
 import { Dispatcher, ToggleTool } from 'shared/types';
 import { RootState } from 'store/reducers';
 
-const ToolbarContainer = styled('div') <{ isHover: boolean }>`
+const ToolbarContainer = styled('div')<{ isHover: boolean }>`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -67,9 +65,6 @@ interface ToolbarProp {
   onClick?: (color: string) => void;
   isInputField?: boolean;
   setShowLabel: Dispatcher<boolean>;
-  setShowImage?: (val: boolean) => void;
-  setModalShow?: (val: boolean) => void;
-  inputFile?: React.Ref<HTMLInputElement>;
   onDelete?: (id: string) => void;
   isChecked?: boolean;
   onClose?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -88,9 +83,6 @@ const Toolbar = ({
   onClick,
   isInputField,
   setShowLabel,
-  setShowImage,
-  setModalShow,
-  inputFile,
   onDelete,
   isChecked,
   onClose,
@@ -120,14 +112,6 @@ const Toolbar = ({
       icon: ArchiveIcon,
       title: isArchived ? 'Unarchive' : 'Archive',
     },
-    {
-      icon: PictureIcon,
-      title: "Add Picture"
-    },
-    {
-      icon: MapPinIcon,
-      title: "Add Location"
-    }
   ];
 
   const handleShowColorPalette = useCallback((): void => {
@@ -155,9 +139,6 @@ const Toolbar = ({
             }
             onToggle={onToggle}
             setShowLabel={setShowLabel}
-            setShowImage={setShowImage}
-            setModalShow={setModalShow}
-            inputFile={inputFile}
             isInputField={isInputField}
             isChecked={isChecked}
           />
